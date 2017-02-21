@@ -1,0 +1,25 @@
+app:
+ image: busybox
+ container_name: "app"
+ volumes:
+  - ./virtualhost:/usr/local/apache2/conf.d/virtualhost/
+  - ../logs:/usr/local/apache2/logs
+  - ../www:/var/www
+
+php:
+ image: reflet/debian8-php
+ container_name: "php"
+ ports:
+  - '9000:9000'
+ volumes_from:
+  - app
+
+httpd:
+ image: reflet/debian8-httpd
+ container_name: "httpd"
+ ports:
+  - '80:80'
+ volumes_from:
+  - app
+ links:
+  - php
