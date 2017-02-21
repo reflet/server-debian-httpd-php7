@@ -32,7 +32,7 @@ $ docker-compose up -d
 $ docker-compose ps
 ```
 
-## テストにいて（ TEST ）
+## テストについて（ TEST ）
 
 下記コマンドにて、結果が返ってきたら問題ありません。
 
