@@ -12,7 +12,7 @@ $ git clone https://github.com/reflet/server-debian-httpd-php7.git .
 
 ## イメージ作成（ Build ）
 
-下記のコマンドにてソースのダウンロードとイメージの構築を実行します。
+下記のコマンドにてイメージのダウンロードと構築を実行します。
 
 ```
 $ docker-compose build
