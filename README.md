@@ -1,4 +1,4 @@
-# Apache＋PHP7 Server
+# Apache＋PHP7 Server - Debian
 
 docker-composeコマンドを使っての操作方法を記載します。
 
