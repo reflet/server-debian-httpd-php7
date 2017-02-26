@@ -8,6 +8,7 @@ docker-composeコマンドを使っての操作方法を記載します。
 
 ```
 $ git clone https://github.com/reflet/server-debian-httpd-php7.git .
+$ cd docker
 $ docker-compose up -d
 ```
 
