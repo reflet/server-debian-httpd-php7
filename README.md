@@ -2,27 +2,12 @@
 
 docker-composeコマンドを使っての操作方法を記載します。
 
-## ファイルを配置する
-
-下記のコマンドにて必要なファイルをgitから取得する
-
-```
-$ git clone https://github.com/reflet/server-debian-httpd-php7.git .
-```
-
-## イメージ作成（ Build ）
-
-下記のコマンドにてイメージのダウンロードと構築を実行します。
-
-```
-$ docker-compose build
-```
-
 ## 起動方法について（ RUN ）
 
 下記のコマンドにてコンテナを起動します (port 80 is available):
 
 ```
+$ git clone https://github.com/reflet/server-debian-httpd-php7.git .
 $ docker-compose up -d
 ```
 
@@ -47,5 +32,5 @@ $ docker-compose ps
 ※操作を終了する場合は、「exit」でコンソールを抜けられます。
 
 ```
-$ docker exec -it httpd /bin/bash
+$ docker exec -u "www-data" -it php /bin/bash
 ```
