@@ -1,0 +1,5 @@
+192.168.33.1 - - [12/Mar/2017:12:34:56 +0900] "GET / HTTP/1.1" 200 50 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+192.168.33.1 - - [12/Mar/2017:12:34:56 +0900] "GET /favicon.ico HTTP/1.1" 404 209 "http://lumen.example.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+192.168.33.1 - - [12/Mar/2017:12:39:05 +0900] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+192.168.33.1 - - [12/Mar/2017:12:44:21 +0900] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
+192.168.33.1 - - [12/Mar/2017:12:49:53 +0900] "GET / HTTP/1.1" 200 50 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"

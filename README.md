@@ -4,10 +4,10 @@ docker-composeコマンドを使っての操作方法を記載します。
 
 ## 起動方法について（ RUN ）
 
-下記のコマンドにてコンテナを起動します (port 80 is available):
+下記のコマンドにてコンテナを起動します。 (port 80 is available)
 
 ```
-$ git clone https://github.com/reflet/server-debian-httpd-php7.git .
+$ git clone git@bitbucket.org:reflet/server-debian8-httpd-php7.git .
 $ cd docker
 $ docker-compose up -d
 ```
@@ -23,7 +23,7 @@ $ docker-compose ps
 下記コマンドにて、結果が返ってきたら問題ありません。
 
 ```
-# curl http://localhost/
+$ curl http://localhost/
 ```
 
 ## メンテナンスについて（ EXEC ）

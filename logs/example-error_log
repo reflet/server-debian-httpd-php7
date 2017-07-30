@@ -1,0 +1,1 @@
+[Sun Feb 26 11:35:38.338804 2017] [authz_core:error] [pid 9:tid 140311657432832] [client 192.168.33.1:53644] AH01630: client denied by server configuration: /var/www/www.example.com/public
