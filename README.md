@@ -7,7 +7,7 @@ docker-composeコマンドを使っての操作方法を記載します。
 下記のコマンドにてコンテナを起動します。 (port 80 is available)
 
 ```
-$ git clone git@bitbucket.org:reflet/server-debian8-httpd-php7.git .
+$ git clone https://github.com/reflet/server-debian-httpd-php7.git .
 $ cd docker
 $ docker-compose up -d
 ```
