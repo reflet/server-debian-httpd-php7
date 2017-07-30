@@ -3,4 +3,6 @@
 .idea
 .vagrant
 .DS_Store
+.ssh
+id_rsa
 vendor
