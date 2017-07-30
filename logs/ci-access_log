@@ -1,4 +1,0 @@
-192.168.33.1 - - [12/Mar/2017:12:45:29 +0900] "GET / HTTP/1.1" 200 43 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-192.168.33.1 - - [12/Mar/2017:12:45:29 +0900] "GET /favicon.ico HTTP/1.1" 404 209 "http://ci.example.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-192.168.33.1 - - [12/Mar/2017:12:49:56 +0900] "GET / HTTP/1.1" 200 43 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
-192.168.33.1 - - [12/Mar/2017:12:51:15 +0900] "GET / HTTP/1.1" 200 56 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36"
