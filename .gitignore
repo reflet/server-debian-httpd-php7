@@ -3,6 +3,11 @@
 .idea
 .vagrant
 .DS_Store
-.ssh
-id_rsa
 vendor
+!.gitkeep
+/docker/data/mysql/*
+/docker/data/postgres/*
+/docker/logs/httpd/*
+/www/*
+!/www/www.example.com/index.html
+

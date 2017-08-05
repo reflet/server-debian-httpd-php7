@@ -19,7 +19,6 @@ services:
    - ./.initdb.mysql:/docker-entrypoint-initdb.d/
   volumes_from:
    - app
-  env_file: mysql.env
 
  postgres:
   image: reflet/debian8-postgres96:1.0
