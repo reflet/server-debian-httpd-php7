@@ -26,6 +26,10 @@ $ docker-compose ps
 $ curl http://localhost/
 ```
 
+※localhostの部分は、環境に合わせて変更ください。
+
+例) vagrantにて192.168.33.10にサーバ起動 (localhost -> 192.168.33.10)
+
 ## メンテナンスについて（ EXEC ）
 
 コンテナ内に入って操作したい場合は、下記コマンドにて接続ください。
