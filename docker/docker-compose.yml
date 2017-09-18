@@ -5,9 +5,9 @@ services:
   container_name: "app"
   volumes:
    - ../www:/var/www
-   - ./logs/httpd:/usr/local/apache2/logs
-   - ./data/mysql:/var/lib/mysql
-   - ./data/postgres:/var/lib/postgresql
+  networks:
+    vpcbr:
+      ipv4_address: 10.2.0.2
 
  mysql:
   image: reflet/debian8-mysql57:1.1
@@ -17,19 +17,21 @@ services:
    - '3306:3306'
   volumes:
    - ./.initdb.mysql:/docker-entrypoint-initdb.d/
-  volumes_from:
-   - app
+  networks:
+    vpcbr:
+      ipv4_address: 10.2.0.3
 
  postgres:
-  image: reflet/debian8-postgres96:1.0
+  image: reflet/debian8-postgres96:1.1
   container_name: 'postgres'
   env_file: .env.postgres
-  volumes:
-      - ./initdb.postgres:/docker-entrypoint-initdb.d/
   ports:
-      - "5432:5432"
-  volumes_from:
-      - app
+   - "5432:5432"
+  volumes:
+   - ./initdb.postgres:/docker-entrypoint-initdb.d/
+  networks:
+    vpcbr:
+      ipv4_address: 10.2.0.4
 
  php:
   image: reflet/debian8-php71:1.1
@@ -41,9 +43,11 @@ services:
    - ./php-ssmtp.conf:/etc/ssmtp/ssmtp.conf
   volumes_from:
    - app
-  links:
-   - mysql
-   - postgres
+  extra_hosts:
+   - "www.example.com:10.2.0.6"
+  networks:
+    vpcbr:
+      ipv4_address: 10.2.0.5
 
  httpd:
   image: reflet/debian8-httpd:1.6
@@ -53,8 +57,29 @@ services:
    - '443:443'
   volumes:
    - ./virtualhost:/usr/local/apache2/conf.d/virtualhost/
+   - httpd-log:/usr/local/apache2/logs/
   volumes_from:
    - app
-  links:
-   - php
+  networks:
+    vpcbr:
+      ipv4_address: 10.2.0.6
+
+volumes:
+  postgres-data:
+    driver: local
+  mysql-data:
+    driver: local
+  httpd-log:
+    driver_opts:
+      type: none
+      device: /home/vagrant/opt/docker/logs/httpd/
+      o: bind
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.2.0.0/16
+         gateway: 10.2.0.1
 
