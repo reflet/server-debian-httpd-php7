@@ -52,6 +52,7 @@ services:
  httpd:
   image: reflet/debian8-httpd:1.6
   container_name: "httpd"
+  #command: /usr/local/apache2/bin/httpd -DFOREGROUND -DTEST
   ports:
    - '80:80'
    - '443:443'
