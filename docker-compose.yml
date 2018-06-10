@@ -1,0 +1,81 @@
+version: '3'
+services:
+ httpd:
+  image: reflet/debian8-httpd:1.6
+  container_name: "httpd"
+  #command: /usr/local/apache2/bin/httpd -DFOREGROUND -DTEST
+  ports:
+    - '80:80'
+    - '443:443'
+  volumes:
+    - app-data:/var/wwww/
+    - app-log:/usr/local/apache2/logs/
+    - ./docker/virtualhost:/usr/local/apache2/conf.d/virtualhost/
+  networks:
+    vpcbr:
+      ipv4_address: 172.16.238.2
+
+ php:
+  image: reflet/debian8-php71:1.1
+  container_name: "php"
+  ports:
+    - '9000:9000'
+  volumes:
+    - app-data:/var/wwww/
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    - ./docker/php/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+  extra_hosts:
+    - "www.example.com:172.16.238.2"
+
+ mysql:
+  image: reflet/debian8-mysql57:1.1
+  container_name: 'mysql'
+  env_file: ./docker/mysql/.env
+  ports:
+    - '3306:3306'
+  volumes:
+    - app-data:/var/wwww/
+    - ./docker/mysql/initdb:/docker-entrypoint-initdb.d/
+
+ postgres:
+  image: reflet/debian8-postgres96:1.1
+  container_name: 'postgres'
+  env_file: ./docker/postgres/.env
+  ports:
+    - "5432:5432"
+  volumes:
+    - app-data:/var/wwww/
+    - ./docker/postgres/initdb:/docker-entrypoint-initdb.d/
+
+ selenium:
+  image: selenium/standalone-chrome-debug:latest
+  container_name: "selenium"
+  ports:
+    - '4444:4444'
+    - '5900:5900'
+  volumes:
+    - app-data:/var/wwww/
+
+volumes:
+  app-data:
+    driver_opts:
+      type: none
+      device: ${PWD}/www/
+      o: bind
+  app-log:
+    driver_opts:
+      type: none
+      device: ${PWD}/logs/
+      o: bind
+  postgres-data:
+    driver: local
+  mysql-data:
+    driver: local
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.16.238.0/24
+
